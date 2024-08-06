@@ -1,0 +1,1 @@
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;%NVM_HOME%;%NVM_SYMLINK%;C:\Users\hari8\AppData\Roaming\npm;C:\Users\hari8\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\hari8\AppData\Local\Programs\Microsoft VS Code\bin  install firebase @angular/fire\PATH.txt

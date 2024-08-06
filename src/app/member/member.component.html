@@ -1,0 +1,374 @@
+<div class="col-12 mt-4">
+  <div class="container-fluid">
+    <form [formGroup]="myForm">
+      <div class="">
+        <div class="col-12">
+          <div class="form-floating mb-3">
+            <div class="input-group">
+              <span class="input-group-text">First and last name</span>
+              <input
+                type="text"
+                aria-label="First name"
+                formControlName="firstname"
+                class="form-control"
+              />
+              <input
+                type="text"
+                aria-label="Last name"
+                formControlName="lastname"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              formControlName="addressone"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Address Line 1</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              formControlName="addresstwo"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Address Line 2</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              formControlName="addressthree"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Address Line 3</label>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >Postal Code</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="postalcode"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >D.O.B</span
+                >
+                <input
+                  type="date"
+                  formControlName="dob"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >Phone Number</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="phonenumber"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >E-Mail</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="email"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button
+              type="button"
+              type="submit"
+              (click)="submitForm()"
+              class="btn btn-primary"
+            >
+              Add
+            </button>
+          </div>
+          <!-- <div class="d-flex justify-content-center">
+            <button
+              type="button"
+              type="submit"
+              (click)="submitForm()"
+              class="btn btn-primary"
+            >
+              Upate
+            </button>
+          </div> -->
+        </div>
+        <div class="col-12 mt-4">
+          <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th scope="col" style="text-align: center">Id</th>
+                <th scope="col" style="text-align: center">First Name</th>
+                <th scope="col" style="text-align: center">Last Name</th>
+                <th scope="col" style="text-align: center">Address Line 1</th>
+                <th scope="col" style="text-align: center">Address Line 2</th>
+                <th scope="col" style="text-align: center">Address Line 3</th>
+                <th scope="col" style="text-align: center">Postal Code</th>
+                <th scope="col" style="text-align: center">Cell Phone</th>
+                <th scope="col" style="text-align: center">Email</th>
+                <th scope="col" style="text-align: center">Dob</th>
+                <th scope="col" style="text-align: center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let members of membersList; let i = index">
+                <td scope="col" style="text-align: center">{{ i + 1 }}</td>
+                <td scope="col" style="text-align: center">
+                  {{ members.first_name }}
+                </td>
+                <td scope="col" style="text-align: center">
+                  {{ members.last_name }}
+                </td>
+                <td scope="col" style="text-align: center">
+                  {{ members.address_line_1 }}
+                </td>
+                <td scope="col" style="text-align: center">
+                  {{ members.address_line_2 }}
+                </td>
+                <td scope="col" style="text-align: center">
+                  {{ members.address_line_3 }}
+                </td>
+                <td scope="col" style="text-align: center">
+                  {{ members.postal_code }}
+                </td>
+                <td scope="col" style="text-align: center">
+                  {{ members.cell_phone }}
+                </td>
+                <td scope="col" style="text-align: center">
+                  {{ members.email }}
+                </td>
+                <td scope="col" style="text-align: center">
+                  {{ members.dob | customDate : "dd-mm-yyyy" }}
+                </td>
+                <td scope="col" style="text-align: center">
+                  <span (click)="editMember(members)" class="me-2"
+                    ><i class="bi bi-pencil"></i>
+                  </span>
+                  <span (click)="deleteMembers(members)" class="me-2"
+                    ><i class="bi bi-archive-fill"></i>
+                  </span>
+                  <span
+                    (click)="showMemberDetails(members)"
+                    class="me-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    <i class="bi bi-folder2-open"></i>
+                  </span>
+                </td>
+
+              </tr>
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                [class.show]="showModal"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+               >
+                <div class="modal-dialog" >
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Subject
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        (click)="dismissModal()"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          formControlName="maths"
+                          value="0"
+                          [checked]="true"
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Maths
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          formControlName="science"
+                          value="1"
+                          [checked]="true"
+                          id="defaultCheck2"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Science
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          formControlName="english"
+                          type="checkbox"
+                          value="2"
+                          [checked]="true"
+                          id="defaultCheck3"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          English
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          formControlName="malayalam"
+                          type="checkbox"
+                          value="3"
+                          [checked]="true"
+                          checked="true"
+                          id="defaultCheck4"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Malayalam
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          formControlName="social"
+                          value="4"
+                          [checked]="true"
+                          id="defaultCheck5"
+                          checked="true"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Social
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          formControlName="gk"
+                          [checked]="true"
+                          value="5"
+                          id="defaultCheck6"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Gk
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          [checked]="true"
+                          formControlName="hindi"
+                          value="6"
+                          id="defaultCheck7"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Hindi
+                        </label>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="image" class="form-label">Profile Image</label>
+                        <input type="file"  id="image" (change)="onFileSelected($event)" class="form-control">
+                        <div *ngIf="imagePreview">
+                          <img [src]="imagePreview" alt="Uploaded Image" style="width: 300px; height: auto;">
+                        </div>
+                        <div *ngIf="selectedMember?.FileUpload && !imagePreview">
+                          <img [src]="selectedMember?.FileUpload" [alt]="selectedMember?.FileUpload" style="width: 300px; height: auto;">
+                        </div>
+                        <div class="mt-2 col-12 justify-content-center" *ngFor="let n of membersList" >
+                          <button type="button" *ngIf="imagePreview || selectedMember?.FileUpload"  class="btn btn-danger"  (click)="deletePicture()">Remove</button>
+
+                        </div>
+
+                      </div>
+
+
+
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                          (click)="dismissModal()"
+                        >
+                          Close
+                        </button>
+                        <button
+                          type="button"
+                         [class.show]="showModal"
+                          class="btn btn-primary"
+                          (click)="submitForm()"
+                          data-bs-dismiss="modal"
+                        >
+                          Save changes
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+
+<!-- {{myForm.value|json}} -->

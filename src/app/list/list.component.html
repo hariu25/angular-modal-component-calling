@@ -1,0 +1,98 @@
+<div class="col-12 mt-4">
+  <table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align: center">Id</th>
+        <th scope="col" style="text-align: center">First Name</th>
+        <th scope="col" style="text-align: center">Last Name</th>
+        <th scope="col" style="text-align: center">Address Line 1</th>
+        <th scope="col" style="text-align: center">Address Line 2</th>
+        <th scope="col" style="text-align: center">Address Line 3</th>
+        <th scope="col" style="text-align: center">Postal Code</th>
+        <th scope="col" style="text-align: center">Cell Phone</th>
+        <th scope="col" style="text-align: center">Email</th>
+        <th scope="col" style="text-align: center">Dob</th>
+        <th scope="col" style="text-align: center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let members of membersList; let i = index">
+        <td scope="col" style="text-align: center">{{ i + 1 }}</td>
+        <td scope="col" style="text-align: center">
+          {{ members.first_name }}
+        </td>
+        <td scope="col" style="text-align: center">
+          {{ members.last_name }}
+        </td>
+        <td scope="col" style="text-align: center">
+          {{ members.address_line_1 }}
+        </td>
+        <td scope="col" style="text-align: center">
+          {{ members.address_line_2 }}
+        </td>
+        <td scope="col" style="text-align: center">
+          {{ members.address_line_3 }}
+        </td>
+        <td scope="col" style="text-align: center">
+          {{ members.postal_code }}
+        </td>
+        <td scope="col" style="text-align: center">
+          {{ members.cell_phone }}
+        </td>
+        <td scope="col" style="text-align: center">
+          {{ members.email }}
+        </td>
+        <td scope="col" style="text-align: center">
+          {{ members.dob | customDate : "dd-mm-yyyy" }}
+        </td>
+        <td scope="col" style="text-align: center">
+          <button
+
+            (click)="addDataList(members)"
+            class="me-2"
+          >
+            <i class="bi bi-pencil"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- data-bs-toggle="modal"
+  data-bs-target="#exampleModal" -->
+  <!-- <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <app-data [dataMember]="datalist"></app-data>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

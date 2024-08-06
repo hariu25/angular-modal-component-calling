@@ -1,0 +1,128 @@
+<!-- data.component.html -->
+<div class="modal-header">
+  <h1 class="modal-title fs-5" id="exampleModalLabel">Add Members</h1>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+  <div class="col-12 mt-4">
+    <div class="container-fluid">
+      <form [formGroup]="myForm">
+        <div class="col-12">
+          <div class="form-floating mb-3">
+            <div class="input-group">
+              <span class="input-group-text">First and last name</span>
+              <input type="text" aria-label="First name" formControlName="firstname" class="form-control" />
+              <input type="text" aria-label="Last name" formControlName="lastname" class="form-control" />
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" formControlName="addressone" class="form-control" id="floatingInput" placeholder="name@example.com" />
+            <label for="floatingInput">Address Line 1</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" formControlName="addresstwo" class="form-control" id="floatingInput" placeholder="name@example.com" />
+            <label for="floatingInput">Address Line 2</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" formControlName="addressthree" id="floatingInput" placeholder="name@example.com" />
+            <label for="floatingInput">Address Line 3</label>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Postal Code</span>
+                <input type="text" class="form-control" formControlName="postalcode" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">D.O.B</span>
+                <input type="date" formControlName="dob" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Phone Number</span>
+                <input type="text" class="form-control" formControlName="phonenumber" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">E-Mail</span>
+                <input type="text" class="form-control" formControlName="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+              </div>
+            </div>
+          </div>
+          <!-- <div class="d-flex justify-content-center">
+            <button type="button" (click)="submitForm()" class="btn btn-primary">Add</button>
+          </div> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+  <button type="button" (click)="updateMember()" class="btn btn-primary">Add</button>
+</div>
+
+
+
+<!-- <div class="container-fluid">
+  <form [formGroup]="myForm">
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <div class="input-group">
+          <span class="input-group-text">First and last name</span>
+          <input type="text" aria-label="First name" formControlName="firstname" class="form-control" />
+          <input type="text" aria-label="Last name" formControlName="lastname" class="form-control" />
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" formControlName="addressone" class="form-control" id="floatingInput" placeholder="name@example.com" />
+        <label for="floatingInput">Address Line 1</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" formControlName="addresstwo" class="form-control" id="floatingInput" placeholder="name@example.com" />
+        <label for="floatingInput">Address Line 2</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" formControlName="addressthree" id="floatingInput" placeholder="name@example.com" />
+        <label for="floatingInput">Address Line 3</label>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Postal Code</span>
+            <input type="text" class="form-control" formControlName="postalcode" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">D.O.B</span>
+            <input type="date" formControlName="dob" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Phone Number</span>
+            <input type="text" class="form-control" formControlName="phonenumber" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">E-Mail</span>
+            <input type="text" class="form-control" formControlName="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="button" (click)="submitForm()" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </form>
+</div> -->
